@@ -1,4 +1,4 @@
-#include<cs50.h>
+#include <cs50.h>
 #include <stdio.h>
 
 // FN placeholders
@@ -6,7 +6,7 @@ int getHeight(void);
 void buildPyramid(int height);
 const int DELTA = 1;
 
-int main(void) 
+int main(void)
 {
     // Ask user for height
     int height = getHeight();

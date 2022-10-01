@@ -53,8 +53,8 @@ int compute_score(string word)
     do
     {
         // Get the character decimal equivalent
-        charDec = (int) word[i];
-        
+        charDec = (int)word[i];
+
         // Stop the loop once we have reached the end of the string
         if (charDec == NUL)
         {
@@ -74,9 +74,8 @@ int compute_score(string word)
         }
 
         i++;
-    }
-    while (true);
-    
+    } while (true);
+
     // Return final score
     return score;
 }

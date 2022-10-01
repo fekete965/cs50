@@ -13,7 +13,7 @@ const int UPPERCASE_Z = 90;
 // Pre-define function prototypes
 string cipherMe(string text, string key);
 
-int main(int argc, string argv[]) 
+int main(int argc, string argv[])
 {
     // Check if the user gave enough arguments
     if (argc != 2)
@@ -39,7 +39,7 @@ int main(int argc, string argv[])
     string cipherText = cipherMe(plainText, key);
     // Prompt the cyphered text
     printf("plaintext:  %s\n", cipherText);
-    
+
     return 0;
 }
 
@@ -49,16 +49,16 @@ string cipherMe(string text, string key)
     int i = 0, charDec, lowerCharDec;
     char currentChar;
     string ciphertext;
-    
+
     // Start looping
     do
     {
         // Get current character
         currentChar = text[i];
         // Save the decimal value of the character
-        charDec = (int) currentChar;
+        charDec = (int)currentChar;
         // Save the lowercase decimal value of the character
-        lowerCharDec = (int) tolower(currentChar);
+        lowerCharDec = (int)tolower(currentChar);
 
         // Break out of the loop once we have reached the end of the string
         if (charDec == NUL)
@@ -85,9 +85,7 @@ string cipherMe(string text, string key)
         }
 
         i++;
-    }
-    while (true);
-    
+    } while (true);
 
     return ciphertext;
 }

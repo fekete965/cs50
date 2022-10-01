@@ -31,7 +31,7 @@ int getHeight(void)
 void printPyramid(int height)
 {
     // Rows
-    for (int i = 0; i < height; i++) 
+    for (int i = 0; i < height; i++)
     {
         // Columns
         for (int j = height; j >= 0; j--)

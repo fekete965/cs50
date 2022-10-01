@@ -4,10 +4,10 @@
 
 // Declare constants
 const string AMEX = "AMEX";
-const int VALID_AMEX_START_DIGITS[2] = { 34, 37 };
+const int VALID_AMEX_START_DIGITS[2] = {34, 37};
 
 const string MASTERCARD = "MASTERCARD";
-const int VALID_MASTERCARD_START_DIGITS[5] = { 51, 52, 53, 54, 55 };
+const int VALID_MASTERCARD_START_DIGITS[5] = {51, 52, 53, 54, 55};
 
 const string VISA = "VISA";
 const int VISA_START_DIGIT = 4;
@@ -26,7 +26,7 @@ string validateCardNumber(long num);
 bool validateCardProvider(int digits, int *validNums);
 int concatInt(int x, int y);
 
-int main(void) 
+int main(void)
 {
     // Get the user's credit card
     long cardNumber = getCardNumber();
@@ -98,8 +98,7 @@ string validateCardNumber(long initialNumber)
         cardLength++;
         // Move to the next digit by dividing our number by 10
         temp /= 10;
-    }
-    while (temp > 0);
+    } while (temp > 0);
 
     // Early return based on card length
     if (cardLength < MIN_CARD_LENGTH || cardLength > MAX_CARD_LENGTH)
@@ -117,18 +116,17 @@ string validateCardNumber(long initialNumber)
         return "1";
     }
 
-    
     // Concatenate the first two digits
     int firstTwoDigits = concatInt(current, lastButOne);
 
     // Validate if card belongs to AMEX
-    if (validateCardProvider(firstTwoDigits, (int *) VALID_AMEX_START_DIGITS))
+    if (validateCardProvider(firstTwoDigits, (int *)VALID_AMEX_START_DIGITS))
     {
         return AMEX;
     }
 
     // Validate if card belongs to MASTERCARD
-    if (validateCardProvider(firstTwoDigits, (int *) VALID_MASTERCARD_START_DIGITS))
+    if (validateCardProvider(firstTwoDigits, (int *)VALID_MASTERCARD_START_DIGITS))
     {
         return MASTERCARD;
     }
@@ -168,5 +166,5 @@ int concatInt(int x, int y)
         pow *= 10;
     }
 
-    return x * pow + y;        
+    return x * pow + y;
 }

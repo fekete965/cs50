@@ -5,19 +5,19 @@ void draw(int n);
 
 int main(void)
 {
-  int height = get_int("Height: ");
+    int height = get_int("Height: ");
 
-  draw(height);
+    draw(height);
 }
 
 void draw(int n)
 {
-  for (int i = 0; i < n; i++)
-  {
-    for (int j = 0; j < i + 1; j++)
+    for (int i = 0; i < n; i++)
     {
-      printf("#");
+        for (int j = 0; j < i + 1; j++)
+        {
+            printf("#");
+        }
+        printf("\n");
     }
-    printf("\n");
-  }
 }

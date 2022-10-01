@@ -5,33 +5,39 @@
 
 void printUppercase(string s);
 
-int main(void) {
+int main(void)
+{
+    string s = get_string("Before: ");
+    printf("After: ");
 
-  string s = get_string("Before: ");
-  printf("After: ");
+    for (int i = 0, n = strlen(s); i < n; i++)
+    {
+        char current = s[i];
 
-   for (int i = 0, n = strlen(s); i < n; i ++) {
-    char current = s[i];
-
-    if (islower(current)) {
-      printf("%c", toupper(current));
-    } else {
-      printf("%c", current);
+        if (islower(current))
+        {
+            printf("%c", toupper(current));
+        }
+        else
+        {
+            printf("%c", current);
+        }
     }
-  }
-  printf("\n");
-
+    printf("\n");
 }
 
 // Custom implementation
-void printUppercase(string s) {
-  for (int i = 0, n = strlen(s); i < n; i ++) {
-    char current = s[i];
+void printUppercase(string s)
+{
+    for (int i = 0, n = strlen(s); i < n; i++)
+    {
+        char current = s[i];
 
-    if (current >= 'a' || current <= 'z') {
-      current = (int) current - 32;
+        if (current >= 'a' || current <= 'z')
+        {
+            current = (int)current - 32;
+        }
+        printf("%c", current);
     }
-      printf("%c", current);
-  }
-  printf("\n");
+    printf("\n");
 }

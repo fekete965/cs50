@@ -15,20 +15,20 @@ const int WHITE_SPACE = 32;
 // Define function prototypes
 int *gatherData(string text);
 
-int main(void) 
+int main(void)
 {
     string text = get_string("Text: ");
 
-    // Tuple [letters, words, sentences] 
+    // Tuple [letters, words, sentences]
     int *textData = gatherData(text);
 
     // Calculate the book's grade
     // L is the average number of letters per 100 words
-    double L = (double) textData[0] / (double) textData[1] * (double) 100;
-    
+    double L = (double)textData[0] / (double)textData[1] * (double)100;
+
     // S is the average number of sentences per 100 words
-    double S = (double) textData[2] / (double) textData[1] * (double) 100;
-    double grade = 0.0588 * L - 0.296 * S - 15.8; 
+    double S = (double)textData[2] / (double)textData[1] * (double)100;
+    double grade = 0.0588 * L - 0.296 * S - 15.8;
 
     // Print out the grade accordingly
     if (grade < 1.0)
@@ -41,7 +41,7 @@ int main(void)
     }
     else
     {
-        printf("Grade: %i\n", (int) grade);
+        printf("Grade: %i\n", (int)grade);
     }
 }
 
@@ -49,7 +49,7 @@ int main(void)
 int *gatherData(string text)
 {
     // We defined tuple [letters, words, sentences]
-    static int data[3] = { 0, 0, 0 };
+    static int data[3] = {0, 0, 0};
     int i = 0, charDec;
 
     do
@@ -86,8 +86,7 @@ int *gatherData(string text)
         }
 
         i++;
-    }
-    while (true);
+    } while (true);
 
     return data;
 }

@@ -13,7 +13,7 @@ const int UPPERCASE_Z = 90;
 // Pred-efine function prototypes
 string cipher(int key, string text);
 
-int main(int argc, string argv[]) 
+int main(int argc, string argv[])
 {
     // End the program if we are missing the necessary argument(s)
     if (argc != 2)
@@ -46,8 +46,8 @@ string cipher(int key, string text)
     do
     {
         // Cast character to int
-        charDec = (int) text[i];
-        
+        charDec = (int)text[i];
+
         // Stop the loop if we reached the end of the string
         if (charDec == NUL)
         {
@@ -70,12 +70,11 @@ string cipher(int key, string text)
         {
             cipherCharDec = charDec;
         }
-        // Force cast int to readable character 
-        cipherText[i] = (char) cipherCharDec;
+        // Force cast int to readable character
+        cipherText[i] = (char)cipherCharDec;
         // Increment counter
         i++;
-    }
-    while (true);
+    } while (true);
 
     return cipherText;
 }

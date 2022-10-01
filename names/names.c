@@ -4,16 +4,16 @@
 
 int main(void)
 {
-  string names[] = { "Bill", "Charlie", "Fred", "George", "Percy", "Ron"};
+    string names[] = {"Bill", "Charlie", "Fred", "George", "Percy", "Ron"};
 
-  for (int i = 0; i < 7; i++)
-  {
-    if (strcmp(names[i], "Ron") == 0)
+    for (int i = 0; i < 7; i++)
     {
-      printf("Found\n");
-      return 0;
+        if (strcmp(names[i], "Ron") == 0)
+        {
+            printf("Found\n");
+            return 0;
+        }
     }
-  }
-  printf("Not Found");
-  return 1;
+    printf("Not Found");
+    return 1;
 }

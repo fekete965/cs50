@@ -4,20 +4,22 @@
 
 int string_length(string input);
 
-int main(void) {
+int main(void)
+{
+    string str = get_string("Type in a string: ");
+    int length = strlen(str);
 
-  string str = get_string("Type in a string: ");
-  int length = strlen(str);
-
-  printf("%i\n", length);
+    printf("%i\n", length);
 }
 
 // Custom implementation
-int string_length(string s) {
-  int i = 0;
-  while (s[i] != '\0') {
-    i++;
-  }
+int string_length(string s)
+{
+    int i = 0;
+    while (s[i] != '\0')
+    {
+        i++;
+    }
 
-  return i;
+    return i;
 }
