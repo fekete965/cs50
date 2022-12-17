@@ -18,7 +18,6 @@ const string INVALID_CHECKSUM = "INVALID CHECKSUM";
 
 const int MIN_CARD_LENGTH = 13;
 const int MAX_CARD_LENGTH = 16;
-const int EXPECTED_RESULT = 20;
 
 // Pre-define function prototypes
 long getCardNumber(void);
@@ -60,7 +59,7 @@ long getCardNumber(void)
 string validateCardNumber(long initialNumber)
 {
     // Predefine our variables
-    int sumOfOdds = 0, sumOfEvens = 0, cardLength = 0, current, lastButOne, doubled;
+    int total = 0, cardLength = 0, current, lastButOne, doubled;
     long temp = initialNumber;
 
     do
@@ -72,7 +71,7 @@ string validateCardNumber(long initialNumber)
         if (cardLength % 2 == 0)
         {
             // Sum all odd numbers
-            sumOfOdds += current;
+            total += current;
         }
         else
         {
@@ -85,12 +84,12 @@ string validateCardNumber(long initialNumber)
             if (doubled / 10 > 0)
             {
                 // If so, add both digits to even sums
-                sumOfEvens += doubled / 10 + doubled % 10;
+                total += doubled / 10 + doubled % 10;
             }
             else
             {
                 // Otherwise just add the single digit to the even sums
-                sumOfEvens += doubled;
+                total += doubled;
             }
         }
 
@@ -107,10 +106,8 @@ string validateCardNumber(long initialNumber)
         return "1";
     }
 
-    // Perform final addition
-    int total = sumOfEvens + sumOfOdds;
     // Check for card validity
-    if (total != EXPECTED_RESULT)
+    if (total % 10 != 0)
     {
         printf("%s\n", INVALID_CHECKSUM);
         return "1";
