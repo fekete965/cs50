@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <title>search</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <ul class="m-3 nav">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="https://about.google/">
+                        About
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="https://store.google/">
+                        Store
+                    </a>
+                </li>
+                <li class="ms-auto nav-item">
+                    <a
+                        class="nav-link text-dark"
+                        href="https://www.google.com/gmail/"
+                    >
+                        Gmail
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link text-dark"
+                        href="https://www.google.com/imghp/"
+                    >
+                        Images
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="btn btn-primary"
+                        href="https://www.accounts.google.com/ServiceLogin"
+                    >
+                        Sign in
+                    </a>
+                </li>
+            </ul>
+            <form action="http://www.google.com/search" method="get">
+                <input
+                    autocomplete="off"
+                    autofocus
+                    name="q"
+                    placholder="Query"
+                    type="text"
+                />
+                <input type="submit" />
+            </form>
+        </div>
+    </body>
+</html>
