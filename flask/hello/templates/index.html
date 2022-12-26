@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+<!-- -->
+{% block body %}
+
+<form action="/greet" method="post">
+  <input
+    aria-autocomplete="off"
+    autofocus
+    name="name"
+    placeholder="Name"
+    required
+    type="text"
+  />
+  <input type="submit" />
+</form>
+
+{% endblock %}
