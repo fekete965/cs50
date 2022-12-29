@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Symbol</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Exchanged price</th>
+                <th scope="col">Exchanged Total value</th>
+                <th scope="col">Action</th>
+                <th scope="col">Date and Time</th>
+            </th>
+        </thead>
+        <tbody>
+            {% for data in historyData %}
+                {% if data["userAction"] == "SELL" %}
+                  <tr class="table-danger" scope="row">
+                  {% else %}
+                  <tr class="table-success" scope="row">
+                {% endif %}
+                <td scope="row">{{ data["name"] | formatName }}</td>
+                <td scope="row">{{ data["symbol"] }}</td>
+                <td scope="row">{{ data["shares"] }}</td>
+                <td scope="row">{{ data["price"] | usd }}</td>
+                <td scope="row">{{ data["totalValue"] | usd }}</td>
+                <td scope="row">{{ data["userAction"] }}</td>
+                <td scope="row">{{ data["dateTime"] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

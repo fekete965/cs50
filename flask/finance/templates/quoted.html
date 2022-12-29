@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <form action="/quote" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Get Quote</button>
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Symbol</th>
+            </th>
+        </thead>
+        <tbody>
+            {% if data %}
+            <tr>
+                <td scope="row">{{ data["name"] }}</td>
+                <td scope="row">{{ data["price"] | usd }}</td>
+                <td scope="row">{{ data["symbol"] }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td scope="row" colspan="3">No record found!</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

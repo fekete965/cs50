@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+        <h3>Account</h3>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="card col mx-2">
+                    <form action="/account/add-credit" class="card-body" method="post">
+                        <div class="mb-3">
+                            <h5>Add Credits</h5>
+                        </div>
+                        <div class="fs-6 fw-semibold">
+                            Current balance: {{ currentBalance | usd }}
+                        </div>
+                        <div class="mb-3 mt-4">
+                            <input class="form-control mx-auto w-auto" id="credit" name="credit" placeholder="Credit" type="number" min="1">
+                        </div>
+                        <button class="btn btn-primary" type="submit">Add credits</button>
+                    </form>
+                </div>
+                <div class="card col mx-2">
+                    <form action="/account/change-password" class="card-body col "method="post">
+                        <div class="mb-3">
+                            <h5>Change password</h5>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control mx-auto w-auto" id="repeatedPassword" name="repeatedPassword" placeholder="Repeat your Password" type="password">
+                        </div>
+                        <button class="btn btn-primary" type="submit">Change password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}
