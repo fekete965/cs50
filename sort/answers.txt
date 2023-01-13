@@ -1,0 +1,18 @@
+sort1 uses: Bubble
+
+How do you know?:
+  The average and worst case scenario's time complexity is O(Pow(N, 2)).
+  The the best case scenario (using an already sorted list) time complexity is O(N).
+  Comparing the the timestamps from sorted50000 and random50000 verified behaviour above.
+
+sort2 uses: Merge
+
+How do you know?:
+  Merge sort's time complexity is O(logN)
+  No matter how big, small, sorted or random the data set is, the completion time is barely different.
+
+sort3 uses: Selection
+
+How do you know?: 
+  Selection sort's time complexity is O(N)
+  Comparing the times after running each randomXXXXX.txt confirmed this behaviour.

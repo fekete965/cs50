@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <title>Trivia!</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+      <div class="section" id="question-1">
+        <h2>Part 1: Multiple Choice</h2>
+        <hr />
+        <h3>What's the name of Hagrid's pet spider?</h3>
+        <div class="response"></div>
+        <div class="btn-container">
+          <button data-answer="Nigini" type="button">Nigini</button>
+          <button data-answer="Crookshanks" type="button">Crookshanks</button>
+          <button data-answer="Aragog" type="button">Aragog</button>
+          <button data-answer="Mosag" type="button">Mosag</button>
+        </div>
+      </div>
+
+      <div class="section" id="question-2">
+        <h2>Part 2: Free Response</h2>
+        <hr />
+        <h3>What animal can Harry speak to?</h3>
+        <div class="response"></div>
+        <input id="animal" type="text" />
+        <button type="button">Check Answer</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const answers = {
+      question1: "Aragog",
+      question2: "snake",
+    };
+
+    const classes = {
+      correctClass: "correct",
+      incorrectClass: "incorrect",
+    };
+
+    const texts = {
+      correct: "Correct!",
+      incorrect: "Incorrect!",
+    };
+
+    const question1Section = document.querySelector("#question-1");
+    const question1Buttons = document.querySelectorAll("#question-1 button");
+    const question1Response = document.querySelector("#question-1 .response");
+
+    question1Section.addEventListener("click", function (event) {
+      const clickedElement = event.target;
+
+      if (clickedElement.tagName !== "BUTTON") return;
+
+      const answer = clickedElement.dataset.answer;
+
+      // Reset button styles
+      question1Buttons.forEach((button) => {
+        button.classList.remove(classes.correctClass);
+        button.classList.remove(classes.incorrectClass);
+      });
+      // Reset response div
+      question1Response.classList.remove(classes.correctClass);
+      question1Response.classList.remove(classes.incorrectClass);
+      // Check answer and apply the corresponding style to the btn and response div
+      if (answer === answers.question1) {
+        clickedElement.classList.add(classes.correctClass);
+        question1Response.classList.add(classes.correctClass);
+        question1Response.textContent = texts.correct;
+      } else {
+        clickedElement.classList.add(classes.incorrectClass);
+        question1Response.classList.add(classes.incorrectClass);
+        question1Response.textContent = texts.incorrect;
+      }
+    });
+
+    const question2Section = document.querySelector("#question-2");
+    const question2Response = document.querySelector("#question-2 .response");
+    const animalInput = document.querySelector("#animal");
+    question2Section.addEventListener("click", function (e) {
+      const clickedElement = e.target;
+
+      if (clickedElement.tagName !== "BUTTON") return;
+
+      const answer = animalInput.value.trim().toLowerCase();
+
+      clickedElement.classList.remove(classes.correctClass);
+      question2Response.classList.remove(classes.correctClass);
+      animalInput.classList.remove(classes.correctClass);
+      clickedElement.classList.remove(classes.incorrectClass);
+      question2Response.classList.remove(classes.incorrectClass);
+      animalInput.classList.remove(classes.incorrectClass);
+
+      if (answer === answers.question2) {
+        clickedElement.classList.add(classes.correctClass);
+        question2Response.classList.add(classes.correctClass);
+        animalInput.classList.add(classes.correctClass);
+        question2Response.textContent = texts.correct;
+      } else {
+        clickedElement.classList.add(classes.incorrectClass);
+        question2Response.classList.add(classes.incorrectClass);
+        animalInput.classList.add(classes.incorrectClass);
+        question2Response.textContent = texts.incorrect;
+      }
+    });
+  </script>
+</html>

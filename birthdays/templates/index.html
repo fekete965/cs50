@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/static/styles.css" rel="stylesheet" />
+    <title>Birthdays</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Birthdays</h1>
+    </div>
+    <div class="container">
+      <div class="section">
+        {% if birthday %}
+        <h2>Edit a Birthday</h2>
+        {% else %}
+        <h2>Add a Birthday</h2>
+        {% endif %}
+        <form method="post" action="/">
+          {% if birthday %}
+          <input name="id" type="hidden" value="{{ birthday['id'] }}" />
+          <input
+            autocomplete="off"
+            value="{{ birthday['name'] }}"
+            name="name"
+            placeholder="Name"
+            type="text"
+          />
+          <input
+            autocomplete="off"
+            value="{{ birthday['month'] }}"
+            name="month"
+            placeholder="Month"
+            type="number"
+            min="1"
+            max="12"
+          />
+          <input
+            autocomplete="off"
+            value="{{ birthday['day'] }}"
+            name="day"
+            placeholder="Day"
+            type="number"
+            min="1"
+            max="31"
+          />
+          <div class="btn-container">
+            <input type="submit" value="Update Birthday" />
+            <input
+              type="submit"
+              value="Cancel Editing"
+              formaction="/cancel-editing"
+            />
+          </div>
+          {% else %}
+          <input
+            autocomplete="off"
+            name="name"
+            placeholder="Name"
+            type="text"
+          />
+          <input
+            autocomplete="off"
+            name="month"
+            placeholder="Month"
+            type="number"
+            min="1"
+            max="12"
+          />
+          <input
+            autocomplete="off"
+            name="day"
+            placeholder="Day"
+            type="number"
+            min="1"
+            max="31"
+          />
+          <input type="submit" value="Add Birthday" />
+          {% endif %}
+        </form>
+        {% if formError %}
+        <div class="error">{{ formError }}</div>
+        {% endif %}
+      </div>
+
+      <div class="section">
+        <h2>All Birthdays</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Birthday</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for birthday in birthdays %}
+            <tr>
+              <td>{{ birthday.name }}</td>
+              <td>{{ birthday.month }}/{{ birthday.day }}</td>
+              <td>
+                <form method="post" action="/delete">
+                  <input type="hidden" name="id" value="{{ birthday.id }}" />
+                  <input type="submit" value="Delete" />
+                  <input
+                    formaction="/edit/{{ birthday.id }}"
+                    formmethod="post"
+                    type="submit"
+                    value="Edit"
+                  />
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

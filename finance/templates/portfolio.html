@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="text-center">
+      <span class="px-4 py-2 text-bg-primary text-uppercase fw-bold fs-5 rounded-pill">
+        Current balance: {{ currentBalance | usd }}
+      </span>
+    </div>
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Symbol</th>
+                <th scope="col">Shares owned</th>
+                <th scope="col">Exchanged price</th>
+                <th scope="col">Current Price</th>
+                <th scope="col">Exchanged Total value</th>
+                <th scope="col">Current Total value</th>
+            </th>
+        </thead>
+        <tbody>
+            {% for userShare in userSharesSummary["shares"] %}
+            <tr>
+                <td scope="row">{{ userShare["name"] | formatName }}</td>
+                <td scope="row">{{ userShare["symbol"] }}</td>
+                <td scope="row">{{ userShare["shares"] | usd }}</td>
+                <td scope="row">{{ userShare["exchangedPrice"] | usd }}</td>
+                <td scope="row">{{ userShare["currentPrice"] | usd }}</td>
+                <td scope="row">{{ userShare["exchangedTotalShareValue"] | usd }}</td>
+                <td scope="row">{{ userShare["currentTotalShareValue"] | usd }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot class="table-dark">
+          <tr>
+            <td colspan="4" scope="row">
+          </td>
+            <td scope="row">
+              Total share value:
+            </td>
+            <td scope="row">
+              {{ userSharesSummary["exchangedTotalValue"] | usd }}
+            </td>
+            <td scope="row">
+              {{ userSharesSummary["currentTotalValue"] | usd }}
+            </td>
+          </tr>
+        </tfoot>
+    </table>
+{% endblock %}
