@@ -110,6 +110,6 @@
 
 #### Week 10 - Emoji:
 
-- [Final Project](project/app.py)
+- [Final Project](https://github.com/fekete965/rusty-cauldron-mvc)
 
 ---
